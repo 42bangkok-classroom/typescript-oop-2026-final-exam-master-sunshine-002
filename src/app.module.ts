@@ -1,8 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Module } from '@nestjs/common'
+import { APP_FILTER } from '@nestjs/core'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { ApiExceptionFilter } from './common/api-exception.filter'
 
-@Injectable()
-export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
-}
+@Module({
+  import: [AppController, AppService]
+  controllers: [AppController]
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: ApiExceptionFilter
+    },
+  ],
+})
+export class AppModule {}
