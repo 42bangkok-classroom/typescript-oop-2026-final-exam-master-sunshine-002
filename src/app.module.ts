@@ -11,7 +11,7 @@ import { ApiExceptionFilter } from './common/api-exception.filter';
     AppService,
     {
       provide: APP_FILTER,
-      useClass: ApiExceptionFilter
+      useClass: ApiExceptionFilter,
     },
   ],
 })
