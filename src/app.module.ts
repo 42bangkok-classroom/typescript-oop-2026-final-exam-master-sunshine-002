@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common'
-import { APP_FILTER } from '@nestjs/core'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { ApiExceptionFilter } from './common/api-exception.filter'
+import { Module } from '@nestjs/common';
+import { APP_FILTER } from '@nestjs/core';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { ApiExceptionFilter } from './common/api-exception.filter';
 
 @Module({
-  imports:[AppController, AppService],
+  imports: [AppController, AppService],
   controllers: [AppController],
   providers: [
     AppService,
